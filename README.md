@@ -8,4 +8,5 @@ Web pages are built using text-based mark-up languages (HTML and XHTML), and fre
 Newer forms of web scraping involve listening to data feeds from web servers. For example, JSON is commonly used as a transport storage mechanism between the client and the web server. 
 There are methods that some websites use to prevent web scraping, such as detecting and disallowing bots from crawling (viewing) their pages. In response, there are web scraping systems that rely on using techniques in DOM parsing, computer vision and natural language processing to simulate human browsing to enable gathering web page content for offline parsing. 
 
+## Jsoup Api 
 
