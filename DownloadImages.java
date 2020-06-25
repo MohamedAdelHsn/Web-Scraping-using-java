@@ -40,8 +40,9 @@ public class DownloadImages {
 		 
 		 Document doc = Jsoup.connect(url).get();   
 		  // define filter to match images in html
-		  Elements images = doc.select("img[src~=(?i)\\.(png|jpe?g|gif)]");  
-          for (Element image : images) {  
+		 Elements images = doc.select("img[src~=(?i)\\.(png|jpe?g|gif)]");  
+		
+                for (Element image : images) {  
        	  
         	  String text = image.attr("alt");
         	  String img_url = image.attr("src");
@@ -50,20 +51,21 @@ public class DownloadImages {
         	  ImageInfo img = new ImageInfo(text+(format), img_url);
         	  list_images.add(img);
              
-         }  
+              }  
           
           
           // open connection to download images
           list_images.forEach((image)-> 
                 
                     {
-						try {
-							DownloadImage(image.getUrl(), image.getText());
-						} catch (IOException e) {
+			try {
+			       DownloadImage(image.getUrl(), image.getText());
+				
+			} catch (IOException e) {
 							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
+				e.printStackTrace();
+			}
+		}
         		  
           );
          
@@ -74,7 +76,7 @@ public class DownloadImages {
 
 	private static void DownloadImage(String image_url, String text) throws IOException {
 		
-	      URL url = new URL(image_url);
+	  URL url = new URL(image_url);
           InputStream inputStream = url.openStream();
           OutputStream outputStream = new FileOutputStream(new File(path+text));
           byte[] buffer = new byte[2048];
